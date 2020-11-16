@@ -1,0 +1,201 @@
+﻿@using FirstEntityFrameworkCore.Entity.ViewModel
+@using FirstEntityFrameworkCore.DAC.Entities;
+
+@model InstructorViewModel
+
+@{
+    ViewData["Title"] = "Instructor";
+}
+
+<div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"></h1>
+
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <h4 class="mb-2 float-left">Eğitmen İşlemleri</h4>
+    </div>
+</div>
+
+
+<form asp-controller="Instructor" asp-action="Instructor" method="post">
+    <div class="form-row">
+
+        <div class="col-sm-12 mt-1 mb-1">
+            <h5 class="">Eğitmen Bilgileri</h5>
+        </div>
+
+        <div class="col-sm-4 mb-3">
+            <label for="name">Ad</label>
+            @Html.TextBoxFor(x => x.name, "", new { @class = "form-control", id = "instructorNameText", placeholder = "Ad" })
+        </div>
+
+        <div class="col-sm-4 mb-3">
+            <label for="surname">Soyad</label>
+            @Html.TextBoxFor(x => x.surname, "", new { @class = "form-control", id = "instructorSurnameText", placeholder = "Soyad" })
+        </div>
+    </div>
+
+
+    <label for="inputState">Branşlar</label>
+
+    <div class="form-group col-sm-4">
+        <select asp-for="ModelArray" asp-items="@Model.selectList"  class="form-control">
+        </select>
+    </div>
+
+    <button class="btn btn-outline-dark mt-3" type="submit">
+
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10zM13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+        </svg>
+
+        <span class="ml-1" typeof="submit" id="addInstructor"> Eğitmeni Ekle</span>
+
+    </button>
+</form>
+
+<hr />
+
+<h3 class="mt-4">Mevcut Eğitmenlerin Listesi:</h3>
+
+<div class="table-responsive">
+    <table class="table  col-sm-10">
+
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Eğitmen Adı</th>
+                <th>Eğitmen Soyadı</th>
+                <th>Branşlar</th>
+                <th>Dersler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                List<Teacher> newList = ViewBag.Instructor as List<Teacher>;
+                List<Branch_Teacher> branchList = ViewBag.branchList as List<Branch_Teacher>;
+                List<Lessons> lessonList = ViewBag.lessonList as List<Lessons>;
+            }
+
+            @if (newList != null)
+            {
+                @if (newList.Count != 0)
+                {
+                    @for (int i = 0; i < newList.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i+1)</td>
+                            <td>
+                                @newList[i].name
+                            </td>
+                            <td>
+                                @newList[i].surname
+
+                                <span class="float-right">
+                                    @using (Html.BeginForm("Delete", "Edit"))
+                                    {
+
+                                        <button class="btn btn-outline-warning btn-sm float-left">Düzenle</button>
+                                    }
+                                    @using (Html.BeginForm("Delete", "Lesson"))
+                                    {
+
+                                        @Html.Hidden("id", newList[i].id)
+                                        <button class="btn btn-outline-danger btn-sm float-left ml-1">Sil</button>
+                                    }
+                                </span>
+                            </td>
+                            <td>
+                                <div class="btn-group dropright">
+                                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Branşlar
+                                    </button>
+                                    <div class="dropdown-menu">
+
+                                        @{
+                                            List<Branch_Teacher> bList = branchList.ToList().Where(x => newList[i].id == x.TeacherId).ToList();
+
+                                            if (bList.Count == 0)
+                                            {
+                                                <button class="dropdown-item" type="button">Branş Mevcut Değil!</button>
+                                            }
+                                            else
+                                            {
+                                                foreach (Branch_Teacher item in bList)
+                                                {
+                                                    <button class="dropdown-item" type="button">@item.branch.name</button>
+                                                }
+                                            }
+
+                                        }
+
+                                    </div>
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <div class="btn-group dropright">
+                                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dersler
+                                    </button>
+                                    <div class="dropdown-menu">
+
+                                        @{
+                                            List<Lessons> lList = lessonList.ToList().Where(x => newList[i].id == x.TeacherId).ToList();
+
+                                            if (lList.Count == 0)
+                                            {
+                                                <button class="dropdown-item" type="button">Ders Mevcut Değil!</button>
+                                            }
+                                            else
+                                            {
+                                                foreach (Lessons item in lList)
+                                                {
+                                                    <button class="dropdown-item" type="button">@item.name</button>
+                                                }
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>Gösterilecek Herhangi Bir Eğitmen Mevcut Değil!</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>Gösterilecek Herhangi Bir Eğitmen Mevcut Değil!</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+
+    $("#addInstructor").on("click", function () {
+
+
+        setTimeout(function () {
+
+            $("#instructorNameText").val("")
+            $("#instructorSurnameText").val("")
+
+        }, 1000)
+
+    })
+
+
+</script>
