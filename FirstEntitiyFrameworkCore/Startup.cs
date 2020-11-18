@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NToastNotify;
+using Rotativa.AspNetCore;
 
 namespace FirstEntitiyFrameworkCore
 {
@@ -69,6 +70,10 @@ namespace FirstEntitiyFrameworkCore
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
+            RotativaConfiguration.Setup(env.WebRootPath, "Rotativa");
+
         }
     }
 }

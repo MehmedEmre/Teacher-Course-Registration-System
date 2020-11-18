@@ -222,7 +222,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extension\MyExtension.cs" />
+    <Compile Include="Extension\String Extension\MyExtension.cs" />
+    <Compile Include="Extension\Tempdata Extension\TempdataExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

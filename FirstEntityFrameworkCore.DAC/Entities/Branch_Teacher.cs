@@ -15,13 +15,12 @@ namespace FirstEntityFrameworkCore.DAC.Entities
 
         public Branch branch { set; get; }
         public int BranchId { set; get; }
-
         public string branchName { set; get; }
-
-        public string teacherName { set; get; }
 
         public Teacher teacher { set; get; }
         public int TeacherId { set; get; }
+        public string teacherName { set; get; }
+
 
     }
 }

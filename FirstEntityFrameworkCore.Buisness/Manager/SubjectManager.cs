@@ -7,7 +7,7 @@ using FirstEntityFrameworkCore.Buisness.Abstract;
 using FirstEntityFrameworkCore.DAC.Entities;
 using FirstEntityFrameworkCore.Entity.ValidationControl;
 using FirstEntityFrameworkCore.Entity.ViewModel;
-using FirstEntityFrameworkCore.Helper.Extension;
+using FirstEntityFrameworkCore.Helper.Extension.String_Extension;
 
 namespace FirstEntityFrameworkCore.Buisness.Manager
 {

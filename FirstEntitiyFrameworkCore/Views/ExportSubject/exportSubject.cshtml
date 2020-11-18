@@ -12,6 +12,36 @@
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 <link href="~/css/site.css" rel="stylesheet" />
 
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #5a6268;
+            color: white;
+        }
+</style>
+
+
 @if (Model != null)
 {
 
@@ -20,73 +50,63 @@
         <div class="row">
 
 
-            <div class="col-sm-10 offset-1 mt-5">
+            <div class="col-sm-12  mt-5">
 
                 <div class="col-sm-12"><b>Eğitmen Adı :</b> @Model.name &nbsp; <b>Eğitmen Soyadı :</b> @Model.surname </div>
-                <div class="col-sm-12 mt-3"><b>Oluşturulma Tarihi :</b> @DateTime.Now</div>
-
-                <button class="btn btn-outline-dark float-right mt-3">
-                    PDF
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
-                        <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
-                        <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                    </svg>
-
-                </button>
-
-            </div>
+                <div style="margin-top:10px" class="col-sm-12"><b>Oluşturulma Tarihi :</b> @DateTime.Now</div>
 
 
-            <div class="col-sm-10 offset-1 mt-3">
+                @using (Html.BeginForm())
+                {
+                    <button type="submit" id="buttonID" class="btn btn-outline-dark" style="margin-bottom: 1rem;margin-top: 1rem;float:right">
+                        PDF
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                            <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
+                            <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                        </svg>
 
-
-                <div class="table-responsive">
-                    <table class="table  col-sm-12">
-
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Konu Başlığı</th>
-                                <th>Konu İçeriği</th>
-                                <th>Başlangıç Tarihi</th>
-                                <th>Bitiş Tarihi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @if (Model.text != null)
-                            {
-                                @for (int i = 0; i < Model.text.Length; i++)
-                                {
-                                    <tr>
-                                        <td>@(i+1)</td>
-                                        <td>@Model.title[i]</td>
-                                        <td>@Model.text[i]</td>
-                                        <td>@Model.subjectStart[i].Value.ToString("dd/MM/yyyy")</td>
-                                        <td>@Model.subjectFinish[i].Value.ToString("dd/MM/yyyy")</td>
-
-                                    </tr>
-                                }
-                            }
-                            else
-                            {
-                                <tr>
-                                    <td>Gösterilecek Herhangi Bir Ders Ve Konu Kaydı Yok!</td>
-                                </tr>
-
-                            }
-
-
-
-                        </tbody>
-                    </table>
-                </div>
+                    </button>
+                }
 
             </div>
 
-            <div class="col-sm-10 offset-1 mt-3">
-                <b class="float-right">&copy; TED </b>
+            <table id="customers">
+
+                <tr>
+                    <th>#</th>
+                    <th>Konu Başlığı</th>
+                    <th>Konu İçeriği</th>
+                    <th>Başlangıç Tarihi</th>
+                    <th>Bitiş Tarihi</th>
+                </tr>
+
+                @if (Model.text != null)
+                {
+                    @for (int i = 0; i < Model.text.Length; i++)
+                    {
+                        <tr>
+                            <td>@(i+1)</td>
+                            <td>@Model.title[i]</td>
+                            <td>@Model.text[i]</td>
+                            <td>@Model.subjectStart[i].Value.ToString("dd/MM/yyyy")</td>
+                            <td>@Model.subjectFinish[i].Value.ToString("dd/MM/yyyy")</td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>Gösterilecek Herhangi Bir Ders Ve Konu Kaydı Yok!</td>
+                    </tr>
+
+                }
+
+            </table>
+
+            <div style ="position: relative;width:100%;padding-right:15px;padding-left:0px;">
+                <b style="margin-top: 15px; float: right" class="float-right">&copy; Mehmed Emre AKDİN </b>
             </div>
 
         </div>
@@ -94,4 +114,6 @@
 
 }
 
-@await Component.InvokeAsync("NToastNotify") 
+@await Component.InvokeAsync("NToastNotify")
+
+
