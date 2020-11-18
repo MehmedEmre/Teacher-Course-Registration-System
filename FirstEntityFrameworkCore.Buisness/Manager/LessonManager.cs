@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using FirstEntityFrameworkCore.Entity.ViewModel;
 using FirstEntityFrameworkCore.Entity.ValidationControl;
 using FirstEntityFrameworkCore.Helper.Extension;
+using FirstEntityFrameworkCore.Helper.Extension.String_Extension;
 
 namespace FirstEntityFrameworkCore.Buisness.Manager
 {

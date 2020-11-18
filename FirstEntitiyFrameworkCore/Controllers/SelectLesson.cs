@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using NToastNotify;
-using FirstEntityFrameworkCore.Helper.Extension;
+using FirstEntityFrameworkCore.Helper.Extension.Tempdata_Extension;
 
 namespace FirstEntitiyFrameworkCore.Controllers
 {
@@ -43,7 +43,9 @@ namespace FirstEntitiyFrameworkCore.Controllers
         public IActionResult RegisteredLesson(int id)
         {
             Teacher teacher = instructorManager.Find(x => x.id == id);
+
             lessonManager.List();
+
             return View(teacher);
         }
 

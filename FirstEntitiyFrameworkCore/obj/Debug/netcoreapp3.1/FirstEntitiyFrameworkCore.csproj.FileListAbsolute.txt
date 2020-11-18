@@ -1366,3 +1366,7 @@ C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEn
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.pdb
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.genruntimeconfig.cache
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Rotativa.AspNetCore.dll
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.csproj.CoreCompileInputs.cache
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.MvcApplicationPartsAssemblyInfo.cache
