@@ -10089,11 +10089,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher Course Registration System\\FirstEntitiyFrameworkCore\\FirstEntitiyFrameworkCore.csproj",
+      "projectUniqueName": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher-Course-Registration-System\\FirstEntitiyFrameworkCore\\FirstEntitiyFrameworkCore.csproj",
       "projectName": "FirstEntitiyFrameworkCore",
-      "projectPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher Course Registration System\\FirstEntitiyFrameworkCore\\FirstEntitiyFrameworkCore.csproj",
+      "projectPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher-Course-Registration-System\\FirstEntitiyFrameworkCore\\FirstEntitiyFrameworkCore.csproj",
       "packagesPath": "C:\\Users\\mehme\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher Course Registration System\\FirstEntitiyFrameworkCore\\obj\\",
+      "outputPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher-Course-Registration-System\\FirstEntitiyFrameworkCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10112,14 +10112,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher Course Registration System\\FirstEntityFrameworkCore.Buisness\\FirstEntityFrameworkCore.Buisness.csproj": {
-              "projectPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher Course Registration System\\FirstEntityFrameworkCore.Buisness\\FirstEntityFrameworkCore.Buisness.csproj"
+            "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher-Course-Registration-System\\FirstEntityFrameworkCore.Buisness\\FirstEntityFrameworkCore.Buisness.csproj": {
+              "projectPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher-Course-Registration-System\\FirstEntityFrameworkCore.Buisness\\FirstEntityFrameworkCore.Buisness.csproj"
             },
-            "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher Course Registration System\\FirstEntityFrameworkCore.Entity\\FirstEntityFrameworkCore.Entity.csproj": {
-              "projectPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher Course Registration System\\FirstEntityFrameworkCore.Entity\\FirstEntityFrameworkCore.Entity.csproj"
+            "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher-Course-Registration-System\\FirstEntityFrameworkCore.Entity\\FirstEntityFrameworkCore.Entity.csproj": {
+              "projectPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher-Course-Registration-System\\FirstEntityFrameworkCore.Entity\\FirstEntityFrameworkCore.Entity.csproj"
             },
-            "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher Course Registration System\\FirstEntityFrameworkCore.Helper\\FirstEntityFrameworkCore.Helper.csproj": {
-              "projectPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher Course Registration System\\FirstEntityFrameworkCore.Helper\\FirstEntityFrameworkCore.Helper.csproj"
+            "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher-Course-Registration-System\\FirstEntityFrameworkCore.Helper\\FirstEntityFrameworkCore.Helper.csproj": {
+              "projectPath": "C:\\Users\\mehme\\Desktop\\Desktop\\GitHub\\Teacher-Course-Registration-System\\FirstEntityFrameworkCore.Helper\\FirstEntityFrameworkCore.Helper.csproj"
             }
           }
         }
