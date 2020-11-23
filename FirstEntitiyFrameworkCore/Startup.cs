@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using FirstEntitiyFrameworkCore.RedisCacheManagers;
+using FirstEntitiyFrameworkCore.RedisCacheManagers.Abstract;
 using FirstEntityFrameworkCore.DAC.DBContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Microsoft.EntityFrameworkCore;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NToastNotify;
 using Rotativa.AspNetCore;
+using FirstEntitiyFrameworkCore.RedisCacheManagers.Concrete;
 
 namespace FirstEntitiyFrameworkCore
 {
@@ -28,6 +32,8 @@ namespace FirstEntitiyFrameworkCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+
             services.AddControllersWithViews().AddNToastNotifyToastr(new ToastrOptions()
             {
                 ProgressBar = false,
@@ -35,7 +41,10 @@ namespace FirstEntitiyFrameworkCore
            
             });
 
+            services.AddStackExchangeRedisCache(action => {   
+            });
 
+            services.AddSingleton<IRedisCacheService, RedisCacheManager>();
 
             services.AddDbContext<DataBaseContext>(x => x.UseSqlServer(Configuration.GetConnectionString("SQLProvider"),y=>y.MigrationsAssembly("FirstEntityFrameworkCore.DAC")));
         }

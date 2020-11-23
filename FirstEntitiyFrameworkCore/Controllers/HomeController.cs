@@ -1,36 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using FirstEntityFrameworkCore.Buisness;
+﻿using FirstEntitiyFrameworkCore.RedisCacheManagers.Abstract;
+using FirstEntityFrameworkCore.Buisness.Manager;
 using FirstEntityFrameworkCore.DAC.Entities;
 using FirstEntityFrameworkCore.Entity.ViewModel;
-using FirstEntityFrameworkCore.Entity.ValidationControl;
+using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
+using System;
+using System.Collections.Generic;
 
 namespace FirstEntitiyFrameworkCore.Controllers
 {
     public class HomeController : Controller
     {
-        private  IToastNotification toastNotification;
+        private IToastNotification toastNotification;
+        private InstructorManager instructorManager = new InstructorManager();
+        private LessonManager lessonManager = new LessonManager();
+        private readonly IRedisCacheService _IRedisCacheService;
 
-        public HomeController(IToastNotification toastNotification)
+        public HomeController(IToastNotification toastNotification, IRedisCacheService IRedisCacheService)
         {
             this.toastNotification = toastNotification;
+            _IRedisCacheService = IRedisCacheService;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-
-            return View();
+           
+            List<Lessons> instructorList = _IRedisCacheService.GetLessons();
+    
+            return View(instructorList);
         }
 
 
-  
+
 
 
     }

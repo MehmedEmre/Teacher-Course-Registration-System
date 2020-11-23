@@ -10,6 +10,7 @@ using FirstEntityFrameworkCore.Entity.ViewModel;
 using FirstEntityFrameworkCore.Entity.ValidationControl;
 using NToastNotify;
 using FirstEntityFrameworkCore.DAC.Entities;
+using FirstEntitiyFrameworkCore.RedisCacheManagers.Abstract;
 
 namespace FirstEntitiyFrameworkCore.Controllers
 {
@@ -19,17 +20,19 @@ namespace FirstEntitiyFrameworkCore.Controllers
         private LessonManager lessonManager = new LessonManager();
         private List<Lessons> lessonList = null;
         private IToastNotification toastNotification;
+        private readonly IRedisCacheService _IRedisCacheService;
 
-
-        public LessonController(IToastNotification toastNotification)
+        public LessonController(IToastNotification toastNotification, IRedisCacheService IRedisCacheService)
         {
             this.toastNotification = toastNotification;
+            _IRedisCacheService = IRedisCacheService;
         }
+
 
         [HttpGet]
         public IActionResult Lesson()
         {
-            lessonList = lessonManager.List();
+            lessonList = _IRedisCacheService.GetLessons();
             ViewBag.Lessons = lessonList;                   
          
             return View();
@@ -49,6 +52,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
 
                     if (lessonViewModel.ErrorList.Count == 0)
                     {
+                        _IRedisCacheService.GetAllRemove();
                         toastNotification.AddSuccessToastMessage("Ders Ekleme İşlemi Başarılı");
                         return RedirectToAction("Lesson");
                     }
@@ -72,8 +76,6 @@ namespace FirstEntitiyFrameworkCore.Controllers
             }
 
         }
-     
-
 
         public JsonResult DeleteLesson(int? value)
         {
@@ -87,6 +89,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
 
                     if (count > 0)
                     {
+                        _IRedisCacheService.GetAllRemove();
                         toastNotification.AddSuccessToastMessage("Silme İşlemi Başarılı!");
                         return Json(new { state = true });
                     }
@@ -115,6 +118,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
 
                     if (count > 0)
                     {
+                        _IRedisCacheService.GetAllRemove();
                         lesson.ModifiedOn = DateTime.Now;
                         toastNotification.AddSuccessToastMessage("Güncelleme İşlemi Başarılı!");
                         return Json(new { state = true });

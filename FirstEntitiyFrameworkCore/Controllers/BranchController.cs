@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using FirstEntityFrameworkCore.Buisness.Manager;
 using FirstEntityFrameworkCore.Entity.ValidationControl;
 using NToastNotify;
+using FirstEntitiyFrameworkCore.RedisCacheManagers.Abstract;
 
 namespace FirstEntitiyFrameworkCore.Controllers
 {
@@ -16,17 +17,19 @@ namespace FirstEntitiyFrameworkCore.Controllers
         private List<Branch> branchList = new List<Branch>();
         private BranchManager branchManager = new BranchManager();
         private IToastNotification toastNotification;
+        private readonly IRedisCacheService _IRedisCacheService;
 
-
-        public BranchController(IToastNotification toastNotification)
+        public BranchController(IToastNotification toastNotification, IRedisCacheService IRedisCacheService)
         {
             this.toastNotification = toastNotification;
+            _IRedisCacheService = IRedisCacheService;
         }
+
 
         [HttpGet]
         public IActionResult Branch()
         {
-            branchList = branchManager.List();
+            branchList = _IRedisCacheService.GetBranchs();
             ViewBag.Branchs = branchList;
 
             return View();
@@ -45,6 +48,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
 
                     if (branchViewModel.ErrorList.Count == 0)
                     {
+                        _IRedisCacheService.GetAllRemove();
                         toastNotification.AddSuccessToastMessage("Branş Ekleme İşlemi Başarılı");
                         return RedirectToAction("Branch");
                     }
@@ -82,6 +86,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
 
                     if (count > 0)
                     {
+                        _IRedisCacheService.GetAllRemove();
                         toastNotification.AddSuccessToastMessage("Silme İşlemi Başarılı!");
                         return Json(new { state = true });
                     }
@@ -110,6 +115,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
 
                     if (count > 0)
                     {
+                        _IRedisCacheService.GetAllRemove();
                         branch.ModifiedOn = DateTime.Now;
                         toastNotification.AddSuccessToastMessage("Güncelleme İşlemi Başarılı!");
                         return Json(new { state = true });

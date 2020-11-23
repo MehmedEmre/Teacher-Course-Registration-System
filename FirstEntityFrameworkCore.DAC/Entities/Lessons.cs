@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,6 +25,10 @@ namespace FirstEntityFrameworkCore.DAC.Entities
         
         public int? TeacherId { set; get; }
 
+        public string ownerTeacherName { set; get; }
+
+        public string ownerTeacherSurname{ set; get; }
+        [JsonIgnore]
         public List<Subject> subject { set; get; }
 
         public Lessons()

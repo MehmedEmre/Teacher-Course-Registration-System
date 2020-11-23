@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +16,7 @@ namespace FirstEntityFrameworkCore.DAC.Entities
 
         [Required]
         public string name { get; set; }
+        [JsonIgnore]
         public List<Branch_Teacher> branch_teacher { set; get; }
         public Branch()
         {

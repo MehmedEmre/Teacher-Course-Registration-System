@@ -98,6 +98,12 @@ namespace FirstEntityFrameworkCore.DAC.Migrations
                     b.Property<string>("ownerBranch")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ownerTeacherName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ownerTeacherSurname")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("id");
 
                     b.HasIndex("TeacherId");

@@ -1221,6 +1221,7 @@ C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEn
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.StackExchangeRedis.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
@@ -1251,6 +1252,9 @@ C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEn
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\NToastNotify.Views.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\NToastNotify.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Pipelines.Sockets.Unofficial.dll
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Rotativa.AspNetCore.dll
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
@@ -1259,6 +1263,7 @@ C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEn
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
@@ -1319,6 +1324,7 @@ C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEn
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
@@ -1337,13 +1343,17 @@ C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEn
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.csprojAssemblyReference.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.AssemblyInfoInputs.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.AssemblyInfo.cs
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.csproj.CoreCompileInputs.cache
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.RazorAssemblyInfo.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.RazorAssemblyInfo.cs
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.TagHelpers.input.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.TagHelpers.output.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.RazorCoreGenerate.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\Razor\Views\Branch\Branch.cshtml.g.cs
-C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\Razor\Views\ExportSubject\exportSubject.cshtml.g.cs
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\Razor\Views\ExportPDF\exportMain.cshtml.g.cs
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\Razor\Views\ExportPDF\exportSubject.cshtml.g.cs
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\Razor\Views\Instructor\Instructor.cshtml.g.cs
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\Razor\Views\Lesson\Lesson.cshtml.g.cs
@@ -1366,7 +1376,3 @@ C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEn
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.pdb
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.genruntimeconfig.cache
-C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\bin\Debug\netcoreapp3.1\Rotativa.AspNetCore.dll
-C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.csproj.CoreCompileInputs.cache
-C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntitiyFrameworkCore\obj\Debug\netcoreapp3.1\FirstEntitiyFrameworkCore.MvcApplicationPartsAssemblyInfo.cache

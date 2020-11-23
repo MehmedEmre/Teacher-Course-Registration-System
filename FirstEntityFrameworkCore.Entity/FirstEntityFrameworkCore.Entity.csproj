@@ -504,6 +504,7 @@
     <Compile Include="ValidationControl\Validation.cs" />
     <Compile Include="ViewModel\AddLessonModel.cs" />
     <Compile Include="ViewModel\BranchViewModel.cs" />
+    <Compile Include="ViewModel\InstructorAndLessonModel.cs" />
     <Compile Include="ViewModel\InstructorViewModel.cs" />
     <Compile Include="ViewModel\LessonViewModel.cs" />
   </ItemGroup>

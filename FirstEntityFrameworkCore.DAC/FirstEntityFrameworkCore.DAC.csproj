@@ -175,6 +175,10 @@
     <Compile Include="Migrations\20201109201122_Migration9.designer.cs">
       <DependentUpon>20201109201122_Migration9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20201123002216_LatestMigrations.cs" />
+    <Compile Include="Migrations\20201123002216_LatestMigrations.designer.cs">
+      <DependentUpon>20201123002216_LatestMigrations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DataBaseContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

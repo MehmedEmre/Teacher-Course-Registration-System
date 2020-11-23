@@ -34,7 +34,6 @@ namespace FirstEntityFrameworkCore.DAC.EntityFrameworkCore.Repository
             return objectSet.AsQueryable();
         }
 
-
         public T Find(Expression<Func<T,bool>> where)
         {
             return objectSet.FirstOrDefault(where);

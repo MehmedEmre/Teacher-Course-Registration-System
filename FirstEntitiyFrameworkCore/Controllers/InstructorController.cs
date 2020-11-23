@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using FirstEntityFrameworkCore.DAC.Entities;
 using FirstEntityFrameworkCore.Entity.ValidationControl;
 using NToastNotify;
+using FirstEntitiyFrameworkCore.RedisCacheManagers.Abstract;
 
 namespace FirstEntitiyFrameworkCore.Controllers
 {
@@ -21,22 +22,24 @@ namespace FirstEntitiyFrameworkCore.Controllers
         private LessonManager lessonManager = new LessonManager();
         private List<Teacher> instructorList;
         private IToastNotification toastNotification;
-        
-        public InstructorController(IToastNotification toastNotification)
+        private readonly IRedisCacheService _IRedisCacheService;
+
+        public InstructorController(IToastNotification toastNotification, IRedisCacheService IRedisCacheService)
         {
             this.toastNotification = toastNotification;
+            _IRedisCacheService = IRedisCacheService;
         }
 
         [HttpGet]
         public IActionResult Instructor()
         {
 
-            branchManager.List().ForEach(x => instructorViewModel.selectList.Add(new SelectListItem(x.name,x.id.ToString())));
-            instructorList = ınstructorManager.List();
+            _IRedisCacheService.GetBranchs().ForEach(x => instructorViewModel.selectList.Add(new SelectListItem(x.name,x.id.ToString())));
+            instructorList = _IRedisCacheService.GetInstructors();
             ViewBag.Instructor = instructorList;
 
             ViewBag.branchList = branch_TeacherManager.List();
-            ViewBag.LessonList = lessonManager.List();
+            ViewBag.LessonList = _IRedisCacheService.GetLessons();
 
             return View(instructorViewModel);
         }
@@ -55,6 +58,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
 
                     if (instructorViewModel.ErrorList.Count == 0)
                     {
+                        _IRedisCacheService.GetAllRemove();
                         toastNotification.AddSuccessToastMessage("Eğitmen Ekleme İşlemi Başarılı");
                         return RedirectToAction("Instructor");
                     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -20,6 +21,7 @@ namespace FirstEntityFrameworkCore.DAC.Entities
 
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime subjectFinish { set; get; }
+        [JsonIgnore]
         public Lessons Lesson { set; get; }
 
         public int LessonId { set; get; }

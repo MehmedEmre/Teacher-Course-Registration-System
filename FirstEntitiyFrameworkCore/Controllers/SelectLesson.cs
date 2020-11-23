@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using NToastNotify;
 using FirstEntityFrameworkCore.Helper.Extension.Tempdata_Extension;
+using FirstEntitiyFrameworkCore.RedisCacheManagers.Abstract;
 
 namespace FirstEntitiyFrameworkCore.Controllers
 {
@@ -23,18 +24,19 @@ namespace FirstEntitiyFrameworkCore.Controllers
         private SubjectManager subjectManager = new SubjectManager();
         private List<Branch_Teacher> branch_TeacherList;
         private IToastNotification toastNotification;
+        private readonly IRedisCacheService _IRedisCacheService;
 
-        public SelectLesson(IToastNotification toastNotification)
+        public SelectLesson(IToastNotification toastNotification, IRedisCacheService IRedisCacheService)
         {
             this.toastNotification = toastNotification;
+            _IRedisCacheService = IRedisCacheService;
         }
-
 
 
         [HttpGet]
         public IActionResult selectLesson()
         {
-            List<Teacher> model = instructorManager.List();
+            List<Teacher> model = _IRedisCacheService.GetInstructors();
 
             return View(model);
         }
@@ -52,9 +54,9 @@ namespace FirstEntitiyFrameworkCore.Controllers
         [HttpGet]
         public IActionResult addInstructorLesson(int id)
         {
+            
             Teacher teacher = instructorManager.Find(x => x.id == id);
             branch_TeacherList = branch_TeacherManager.List().Where(x => x.TeacherId == id).ToList();
-
 
             AddLessonModel addLessonModel = new AddLessonModel();
 
@@ -70,7 +72,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
         [HttpPost]
         public IActionResult addInstructorLesson(AddLessonModel addLessonModel)
         {
-             lessonManager.List().Where(x=>x.isFull != true).ToList().ForEach(x => addLessonModel.selectListLesson.Add(new SelectListItem(x.name, x.id.ToString())));
+            _IRedisCacheService.GetLessons().Where(x=>x.isFull != true).ToList().ForEach(x => addLessonModel.selectListLesson.Add(new SelectListItem(x.name, x.id.ToString())));
             branch_TeacherList = branch_TeacherManager.List().Where(x => x.TeacherId == addLessonModel.TeacherId).ToList();
             branch_TeacherList.ForEach(x => addLessonModel.selectListBranch.Add(new SelectListItem(x.branchName, x.id.ToString())));
 
@@ -79,15 +81,16 @@ namespace FirstEntitiyFrameworkCore.Controllers
             {
                 Validation<Subject> valid = subjectManager.Insert(addLessonModel);
 
-                if(valid.ErrorList.Count == 0)
+                if (valid.ErrorList.Count == 0)
                 {
+                    _IRedisCacheService.GetAllRemove();
                     Teacher teacher = instructorManager.List().Find(x => x.id == addLessonModel.TeacherId);
                     addLessonModel.name = teacher.name;
                     addLessonModel.surname = teacher.surname;
 
                     TempData.MyPut("model",addLessonModel);
 
-                    return RedirectToAction("exportSubject", "ExportSubject");
+                    return RedirectToAction("exportSubject", "ExportPDF");
                 }
                 else
                 {
