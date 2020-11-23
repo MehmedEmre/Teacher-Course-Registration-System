@@ -17,7 +17,7 @@ namespace FirstEntitiyFrameworkCore.RedisCacheManagers.Concrete
 {
 
     //Neden Redis?
-    // Redis verileri öncelikli olarak kendi makinemizin RAM’inde tutar. Bunun dışında isteğe bağlı olarak verilerimizi belirli zaman aralıklarında diske de kaydedebilir.Böylelikle istediğimiz zaman verilerimize diskten ulaşabilir, aynı zamanda veri kaybı gibi problemlerin de önüne geçebiliriz. Redis’in verileri bellekte tutmasının en önemli avantajlarından bir diğeri ise okuma ve yazma işlemlerini milisaniyelere kadar düşürebilmesidir.
+    //Redis bir veri yapısı sunucusudur.Redis verileri öncelikli olarak kendi makinemizin RAM’inde tutar. Bunun dışında isteğe bağlı olarak verilerimizi belirli zaman aralıklarında diske de kaydedebilir.Böylelikle istediğimiz zaman verilerimize diskten ulaşabilir, aynı zamanda veri kaybı gibi problemlerin de önüne geçebiliriz. Redis’in verileri bellekte tutmasının en önemli avantajlarından bir diğeri ise okuma ve yazma işlemlerini milisaniyelere kadar düşürebilmesidir.
 
     public class RedisCacheManager : IRedisCacheService
     {
