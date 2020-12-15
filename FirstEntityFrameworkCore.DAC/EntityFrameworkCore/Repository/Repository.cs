@@ -1,4 +1,5 @@
 ﻿using FirstEntityFrameworkCore.DAC.Abstract;
+using FirstEntityFrameworkCore.DAC.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,13 @@ namespace FirstEntityFrameworkCore.DAC.EntityFrameworkCore.Repository
             return objectSet.AsQueryable();
         }
 
+
+        public List<Lessons> ListWithSub()
+        {
+            return db.LessonTable.Include(t => t.teacher).ThenInclude(b => b.branch_teacher).ToList();
+             
+        }
+
         public T Find(Expression<Func<T,bool>> where)
         {
             return objectSet.FirstOrDefault(where);
@@ -62,5 +70,6 @@ namespace FirstEntityFrameworkCore.DAC.EntityFrameworkCore.Repository
             return db.SaveChanges();
         }
 
+      
     }
 }

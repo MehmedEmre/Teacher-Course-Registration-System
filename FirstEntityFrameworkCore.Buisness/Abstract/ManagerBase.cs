@@ -1,4 +1,5 @@
 ﻿using FirstEntityFrameworkCore.DAC.Abstract;
+using FirstEntityFrameworkCore.DAC.Entities;
 using FirstEntityFrameworkCore.DAC.EntityFrameworkCore.Repository;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,12 @@ namespace FirstEntityFrameworkCore.Buisness.Abstract
             return repo.List(where);
         }
 
+        public List<Lessons> ListWithSub()
+        {
+            return repo.ListWithSub();
+        }
+
+
         public IQueryable ListQueryable()
         {
             return repo.ListQueryable();
@@ -52,5 +59,7 @@ namespace FirstEntityFrameworkCore.Buisness.Abstract
         {
             return repo.Update(obj);
         }
+
+   
     }
 }

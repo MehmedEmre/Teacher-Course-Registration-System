@@ -25,7 +25,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-           
+         
             List<Lessons> instructorList = _IRedisCacheService.GetLessons();
     
             return View(instructorList);

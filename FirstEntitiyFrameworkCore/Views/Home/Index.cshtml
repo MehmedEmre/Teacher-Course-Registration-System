@@ -31,11 +31,14 @@
 
             @if (Model.Count != 0)
             {
+                int count = 0;
 
                 @for (int i = 0; i < Model.Count; i++)
-                {                 
+                {
+                    if (Model[i].teacher != null)
+                    {
                         <tr>
-                            <td>@(i+1)</td>
+                            <td>@(++count)</td>
                             <td>
                                 @Model[i].ownerTeacherName
                             </td>
@@ -43,14 +46,14 @@
                                 @Model[i].ownerTeacherSurname
                             </td>
                             <td>
-                                @Model[i].ownerBranch
+                               @Model[i].ownerBranch
                             </td>
-                             <td>
+                            <td>
                                 @Model[i].name
                             </td>
 
                         </tr>
-                    
+                    }
 
                 }
 

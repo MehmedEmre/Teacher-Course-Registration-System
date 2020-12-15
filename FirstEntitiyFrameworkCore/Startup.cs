@@ -33,7 +33,6 @@ namespace FirstEntitiyFrameworkCore
         public void ConfigureServices(IServiceCollection services)
         {
 
-
             services.AddControllersWithViews().AddNToastNotifyToastr(new ToastrOptions()
             {
                 ProgressBar = false,
@@ -41,8 +40,6 @@ namespace FirstEntitiyFrameworkCore
            
             });
 
-            services.AddStackExchangeRedisCache(action => {   
-            });
 
             services.AddSingleton<IRedisCacheService, RedisCacheManager>();
 
@@ -66,9 +63,6 @@ namespace FirstEntitiyFrameworkCore
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-           
-
             app.UseRouting();
 
             app.UseAuthorization();

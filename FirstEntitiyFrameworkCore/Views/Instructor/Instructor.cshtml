@@ -7,6 +7,8 @@
     ViewData["Title"] = "Instructor";
 }
 
+<script src="~/js/JavaScript/DeleteInstructor.js"></script>
+
 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2"></h1>
 
@@ -38,7 +40,7 @@
     <label for="inputState">Branşlar</label>
 
     <div class="form-group col-sm-4">
-        <select asp-for="ModelArray" asp-items="@Model.selectList"  class="form-control">
+        <select asp-for="ModelArray" asp-items="@Model.selectList" class="form-control">
         </select>
     </div>
 
@@ -82,7 +84,7 @@
                 {
                     @for (int i = 0; i < newList.Count; i++)
                     {
-                        <tr>
+                        <tr id="row_@newList[i].id">
                             <td>@(i+1)</td>
                             <td>
                                 @newList[i].name
@@ -100,7 +102,7 @@
                                     {
 
                                         @Html.Hidden("id", newList[i].id)
-                                        <button class="btn btn-outline-danger btn-sm float-left ml-1">Sil</button>
+                                        <button type="button" onclick="remove(@newList[i].id)" class="btn btn-outline-danger btn-sm float-left ml-1">Sil</button>
                                     }
                                 </span>
                             </td>
@@ -182,6 +184,8 @@
     </table>
 </div>
 
+
+@await Component.InvokeAsync("Modal")
 
 <script>
 

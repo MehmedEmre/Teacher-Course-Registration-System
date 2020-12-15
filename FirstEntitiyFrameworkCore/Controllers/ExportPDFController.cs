@@ -18,7 +18,6 @@ namespace FirstEntitiyFrameworkCore.Controllers
 
         private IToastNotification toastNotification;
         private static AddLessonModel model;
-        private InstructorManager instructorManager = new InstructorManager();
         private LessonManager lessonManager = new LessonManager();
         private readonly IRedisCacheService _IRedisCacheService;
 
@@ -60,20 +59,19 @@ namespace FirstEntitiyFrameworkCore.Controllers
         [HttpGet]
         public IActionResult exportMain()
         {
-            List<Teacher> instructorList = _IRedisCacheService.GetInstructors();
-            lessonManager.List();
+            List<Lessons> LessonsList = _IRedisCacheService.GetLessons();
+     
 
-            return View(instructorList);
+            return View(LessonsList);
         }
 
         [HttpPost]
         [ActionName("exportMain")]
         public IActionResult exportMainList()
         {
-            List<Teacher> instructorList = _IRedisCacheService.GetInstructors();
-            lessonManager.List();
+            List<Lessons> LessonsList = _IRedisCacheService.GetLessons();
 
-            return new ViewAsPdf("exportMain", instructorList)
+            return new ViewAsPdf("exportMain", LessonsList)
             {
                 CustomSwitches = "--footer-center [page]"
             }; ;

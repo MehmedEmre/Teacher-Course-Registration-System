@@ -78,19 +78,7 @@ namespace FirstEntitiyFrameworkCore.RedisCacheManagers.Concrete
 
         public List<Lessons> SetLessons()
         {
-            List<Lessons> model = (from lesson in lessonManager.List()
-                                   join teacher in instructorManager.List()
-                                   on lesson.TeacherId equals teacher.id
-                                   select new Lessons
-                                   {
-                                       id = lesson.id,
-                                       name = lesson.name,
-                                       ownerTeacherName = lesson.name,
-                                       ownerTeacherSurname = lesson.ownerTeacherSurname,
-                                       ownerBranch = lesson.ownerBranch,
-                                       isFull = lesson.isFull
-                                       
-                                   }).ToList();
+            List<Lessons> model = lessonManager.ListWithSub();
 
             var jsonModel = JsonConvert.SerializeObject(model);
 

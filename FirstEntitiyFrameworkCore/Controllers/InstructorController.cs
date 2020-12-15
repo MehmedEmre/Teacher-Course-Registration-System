@@ -82,6 +82,34 @@ namespace FirstEntitiyFrameworkCore.Controllers
             }
         }
 
+        public JsonResult Delete(int? id)
+        {
+
+            if(id != null)
+            {
+                Teacher instructor = ınstructorManager.Find(x => x.id == id);
+
+                if(instructor != null)
+                {
+                    int count = ınstructorManager.Remove(instructor);
+
+                    if(count > 0)
+                    {
+                        _IRedisCacheService.GetAllRemove();
+                        toastNotification.AddSuccessToastMessage("Silme İşlemi Başarılı!");
+                        return Json(new { state = true });
+                    }
+                    toastNotification.AddWarningToastMessage("Silme İşlemi Sırasında Bir Hata Meydana Geldi!!");
+                    return Json(new { state = false });
+                }
+                toastNotification.AddWarningToastMessage("Silme İşlemi Sırasında Bir Hata Meydana Geldi!!");
+                return Json(new { state = false });
+            }
+            toastNotification.AddWarningToastMessage("Silme İşlemi Sırasında Bir Hata Meydana Geldi!!");
+            return Json(new { state = false });
+        }
+
+
 
     }
 }

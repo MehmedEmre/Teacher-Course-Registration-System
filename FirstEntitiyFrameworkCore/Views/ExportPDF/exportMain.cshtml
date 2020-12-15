@@ -1,6 +1,6 @@
 ﻿@using FirstEntityFrameworkCore.DAC.Entities
 
-@model List<Teacher>
+@model List<Lessons>
 
 @{
     ViewData["Title"] = "exportSubject";
@@ -81,26 +81,28 @@
                     <th>Dersi</th>
                 </tr>
 
+
                 @if (Model.Count != 0)
                 {
+                    int count = 0;
 
                     @for (int i = 0; i < Model.Count; i++)
                     {
-                        @for (int j = 0; j < Model[i].lessons.Count; j++)
+                        if (Model[i].teacher != null)
                         {
                             <tr>
-                                <td>@(i+1)</td>
+                                <td>@(++count)</td>
+                                <td>
+                                    @Model[i].ownerTeacherName
+                                </td>
+                                <td>
+                                    @Model[i].ownerTeacherSurname
+                                </td>
+                                <td>
+                                    @Model[i].ownerBranch
+                                </td>
                                 <td>
                                     @Model[i].name
-                                </td>
-                                <td>
-                                    @Model[i].surname
-                                </td>
-                                <td>
-                                    @Model[i].lessons[j].ownerBranch
-                                </td>
-                                <td>
-                                    @Model[i].lessons[j].name
                                 </td>
 
                             </tr>

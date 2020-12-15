@@ -64,7 +64,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
             addLessonModel.name = teacher.name;
             addLessonModel.surname = teacher.surname;
             lessonManager.List().Where(x=>x.isFull != true).ToList().ForEach(x => addLessonModel.selectListLesson.Add(new SelectListItem(x.name, x.id.ToString())));
-            branch_TeacherList.ForEach(x => addLessonModel.selectListBranch.Add(new SelectListItem(x.branchName, x.id.ToString())));
+            branch_TeacherList.ForEach(x => addLessonModel.selectListBranch.Add(new SelectListItem(x.branchName, x.BranchId.ToString())));
 
             return View(addLessonModel);
         }
@@ -74,7 +74,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
         {
             _IRedisCacheService.GetLessons().Where(x=>x.isFull != true).ToList().ForEach(x => addLessonModel.selectListLesson.Add(new SelectListItem(x.name, x.id.ToString())));
             branch_TeacherList = branch_TeacherManager.List().Where(x => x.TeacherId == addLessonModel.TeacherId).ToList();
-            branch_TeacherList.ForEach(x => addLessonModel.selectListBranch.Add(new SelectListItem(x.branchName, x.id.ToString())));
+            branch_TeacherList.ForEach(x => addLessonModel.selectListBranch.Add(new SelectListItem(x.branchName, x.BranchId.ToString())));
 
 
             if (addLessonModel != null)
