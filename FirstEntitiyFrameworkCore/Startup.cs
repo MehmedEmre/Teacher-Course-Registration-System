@@ -36,7 +36,7 @@ namespace FirstEntitiyFrameworkCore
             services.AddControllersWithViews().AddNToastNotifyToastr(new ToastrOptions()
             {
                 ProgressBar = false,
-                PositionClass = ToastPositions.TopRight
+                PositionClass = ToastPositions.TopRight      
            
             });
 

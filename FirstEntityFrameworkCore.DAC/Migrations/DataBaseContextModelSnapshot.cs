@@ -48,23 +48,23 @@ namespace FirstEntityFrameworkCore.DAC.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BranchId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
                     b.Property<string>("branchName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("branchid")
+                        .HasColumnType("int");
 
                     b.Property<string>("teacherName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("teacherid")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
 
-                    b.HasIndex("BranchId");
+                    b.HasIndex("branchid");
 
-                    b.HasIndex("TeacherId");
+                    b.HasIndex("teacherid");
 
                     b.ToTable("Branch_TeacherTable");
                 });
@@ -82,7 +82,7 @@ namespace FirstEntityFrameworkCore.DAC.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("TeacherId")
+                    b.Property<int?>("branchid")
                         .HasColumnType("int");
 
                     b.Property<string>("code")
@@ -104,9 +104,12 @@ namespace FirstEntityFrameworkCore.DAC.Migrations
                     b.Property<string>("ownerTeacherSurname")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("teacherid")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
 
-                    b.HasIndex("TeacherId");
+                    b.HasIndex("teacherid");
 
                     b.ToTable("Lessons");
                 });
@@ -121,11 +124,11 @@ namespace FirstEntityFrameworkCore.DAC.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("lessonid")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("subjectFinish")
                         .HasColumnType("datetime2");
@@ -141,7 +144,7 @@ namespace FirstEntityFrameworkCore.DAC.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("LessonId");
+                    b.HasIndex("lessonid");
 
                     b.ToTable("Subjects");
                 });
@@ -176,13 +179,13 @@ namespace FirstEntityFrameworkCore.DAC.Migrations
                 {
                     b.HasOne("FirstEntityFrameworkCore.DAC.Entities.Branch", "branch")
                         .WithMany("branch_teacher")
-                        .HasForeignKey("BranchId")
+                        .HasForeignKey("branchid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("FirstEntityFrameworkCore.DAC.Entities.Teacher", "teacher")
                         .WithMany("branch_teacher")
-                        .HasForeignKey("TeacherId")
+                        .HasForeignKey("teacherid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -191,14 +194,14 @@ namespace FirstEntityFrameworkCore.DAC.Migrations
                 {
                     b.HasOne("FirstEntityFrameworkCore.DAC.Entities.Teacher", "teacher")
                         .WithMany("lessons")
-                        .HasForeignKey("TeacherId");
+                        .HasForeignKey("teacherid");
                 });
 
             modelBuilder.Entity("FirstEntityFrameworkCore.DAC.Entities.Subject", b =>
                 {
                     b.HasOne("FirstEntityFrameworkCore.DAC.Entities.Lessons", "Lesson")
                         .WithMany("subject")
-                        .HasForeignKey("LessonId")
+                        .HasForeignKey("lessonid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

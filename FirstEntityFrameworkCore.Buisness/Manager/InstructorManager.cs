@@ -24,7 +24,8 @@ namespace FirstEntityFrameworkCore.Buisness.Manager
 
             List<Teacher> tempList = base.List();
 
-            instructor = tempList.Find(x => x.name.MyTrimAndToLowerFunction() == modelInstructor.name.MyTrimAndToLowerFunction());
+            instructor = tempList.Find(x => x.name.MyTrimAndToLowerFunction() == modelInstructor.name.MyTrimAndToLowerFunction() &&
+                                        x.surname.MyTrimAndToLowerFunction() == modelInstructor.surname.MyTrimAndToLowerFunction());
 
             if (modelInstructor.name == null)
             {
@@ -41,12 +42,10 @@ namespace FirstEntityFrameworkCore.Buisness.Manager
             }
             if (instructor != null)
             {
-
                 validation.ErrorList.Add("Bu  Eğitmen Adı Zaten Kayıtlı!");
                 validation.objectModel = modelInstructor;
 
                 return validation;
-
             }
             instructor = new Teacher();
             instructor.name = modelInstructor.name.MyFirstLetterCapital(); 

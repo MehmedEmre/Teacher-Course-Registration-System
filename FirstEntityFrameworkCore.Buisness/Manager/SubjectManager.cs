@@ -55,6 +55,8 @@ namespace FirstEntityFrameworkCore.Buisness.Manager
             lesson.ownerBranch = branch.name;
             lesson.ownerTeacherName = teacher.name;
             lesson.ownerTeacherSurname = teacher.surname;
+            lesson.teacherid = teacher.id;
+            lesson.branchid = branch.id;
             lesson.isFull = true;
             lesson.teacher = teacher;
 

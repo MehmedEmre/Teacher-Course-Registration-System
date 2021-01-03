@@ -17,10 +17,19 @@
 
 </style>
 
+<div class="form-group col-sm-11">
+    <h4>@Model.name @Model.surname</h4>
+
+    <hr class="mt-2"/>
+
+</div>
+
+
+
 
 <form asp-controller="SelectLesson" asp-action="addInstructorLesson" method="post">
 
-    @Html.HiddenFor(x=>x.TeacherId)
+    @Html.HiddenFor(x => x.TeacherId)
 
     <div class="form-group col-sm-6">
         <label for="branchList">Branşlarınız</label>
@@ -84,8 +93,16 @@
     </div>
 
 
+    <div class="col-sm-11 row" id="save">
 
-    <button class="btn btn-outline-dark" id="save" type="submit">Kaydet</button>
+        <button class="btn btn-outline-dark ml-3 mr-3" type="submit">Kaydet</button>
+
+        <div class="custom-control custom-switch mt-3">
+            <input asp-for="isPDF" type="checkbox" class="custom-control-input" id="customSwitch1" />
+            <label class="custom-control-label" for="customSwitch1">PDF Olarak Çıkart.</label>
+        </div>
+
+    </div>
 
 </form>
 

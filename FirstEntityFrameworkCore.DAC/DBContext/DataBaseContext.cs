@@ -21,8 +21,6 @@ namespace FirstEntityFrameworkCore.DAC.DBContext
 
         public DataBaseContext()
         {
-
-
         }
 
         public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options) { }
@@ -41,12 +39,12 @@ namespace FirstEntityFrameworkCore.DAC.DBContext
             modelBuilder.Entity<Branch_Teacher>()
                         .HasOne(bt => bt.teacher)
                         .WithMany(t => t.branch_teacher)
-                        .HasForeignKey(bt => bt.TeacherId);
+                        .HasForeignKey(bt => bt.teacherid);
 
             modelBuilder.Entity<Branch_Teacher>().
                          HasOne(b => b.branch).
                          WithMany(bt => bt.branch_teacher)
-                         .HasForeignKey(b=>b.BranchId);
+                         .HasForeignKey(b=>b.branchid);
 
 
 

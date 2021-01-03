@@ -24,7 +24,7 @@ namespace FirstEntityFrameworkCore.DAC.Entities
         [JsonIgnore]
         public Lessons Lesson { set; get; }
 
-        public int LessonId { set; get; }
+        public int lessonid { set; get; }
 
     }
 }

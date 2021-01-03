@@ -22,6 +22,8 @@ namespace FirstEntityFrameworkCore.Entity.ViewModel
         public string[] title { set; get; }
         public string[] text { set; get; }
 
+        public Boolean isPDF { set; get; }
+
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime?[] subjectStart { set; get; }
 

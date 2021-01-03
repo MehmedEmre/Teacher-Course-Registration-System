@@ -329,8 +329,8 @@ C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEn
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Helper\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Helper\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Helper\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Helper\obj\Debug\FirstEntityFrameworkCore.Helper.csprojAssemblyReference.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Helper\obj\Debug\FirstEntityFrameworkCore.Helper.csproj.CoreCompileInputs.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Helper\obj\Debug\FirstEntityFrameworkCore.Helper.csproj.CopyComplete
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Helper\obj\Debug\FirstEntityFrameworkCore.Helper.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Helper\obj\Debug\FirstEntityFrameworkCore.Helper.pdb
-C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Helper\obj\Debug\FirstEntityFrameworkCore.Helper.csprojAssemblyReference.cache

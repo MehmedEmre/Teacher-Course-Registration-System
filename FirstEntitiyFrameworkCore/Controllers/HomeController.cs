@@ -12,7 +12,6 @@ namespace FirstEntitiyFrameworkCore.Controllers
     public class HomeController : Controller
     {
         private IToastNotification toastNotification;
-        private InstructorManager instructorManager = new InstructorManager();
         private LessonManager lessonManager = new LessonManager();
         private readonly IRedisCacheService _IRedisCacheService;
 
@@ -25,10 +24,12 @@ namespace FirstEntitiyFrameworkCore.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-         
-            List<Lessons> instructorList = _IRedisCacheService.GetLessons();
-    
-            return View(instructorList);
+
+            _IRedisCacheService.GetAllRemove();
+
+            List<Lessons> LessonList = lessonManager.List(x => x.isFull);
+
+            return View(LessonList);
         }
 
 

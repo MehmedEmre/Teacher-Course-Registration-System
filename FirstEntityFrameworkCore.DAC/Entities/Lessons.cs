@@ -19,11 +19,13 @@ namespace FirstEntityFrameworkCore.DAC.Entities
 
         public string ownerBranch { set; get; }
 
-        public Boolean isFull { set; get; }
+        public int? branchid { set; get; }
 
+        public Boolean isFull { set; get; }
+        [JsonIgnore]
         public Teacher teacher { set; get; }
         
-        public int? TeacherId { set; get; }
+        public int? teacherid { set; get; }
 
         public string ownerTeacherName { set; get; }
 

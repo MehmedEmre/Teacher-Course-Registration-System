@@ -171,13 +171,9 @@
     <Compile Include="Entities\Teacher.cs" />
     <Compile Include="EntityFrameworkCore\Repository\Repository.cs" />
     <Compile Include="EntityFrameworkCore\Repository\RepositoryBase.cs" />
-    <Compile Include="Migrations\20201109201122_Migration9.cs" />
-    <Compile Include="Migrations\20201109201122_Migration9.designer.cs">
-      <DependentUpon>20201109201122_Migration9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20201123002216_LatestMigrations.cs" />
-    <Compile Include="Migrations\20201123002216_LatestMigrations.designer.cs">
-      <DependentUpon>20201123002216_LatestMigrations.cs</DependentUpon>
+    <Compile Include="Migrations\20201231214614_newMigration3.cs" />
+    <Compile Include="Migrations\20201231214614_newMigration3.designer.cs">
+      <DependentUpon>20201231214614_newMigration3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataBaseContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

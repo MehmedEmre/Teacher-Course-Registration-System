@@ -19,7 +19,6 @@ namespace FirstEntitiyFrameworkCore.Controllers
     {
         private InstructorManager instructorManager = new InstructorManager();
         private LessonManager lessonManager = new LessonManager();
-        private BranchManager branchManager = new BranchManager();
         private Branch_TeacherManager branch_TeacherManager = new Branch_TeacherManager();
         private SubjectManager subjectManager = new SubjectManager();
         private List<Branch_Teacher> branch_TeacherList;
@@ -56,7 +55,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
         {
             
             Teacher teacher = instructorManager.Find(x => x.id == id);
-            branch_TeacherList = branch_TeacherManager.List().Where(x => x.TeacherId == id).ToList();
+            branch_TeacherList = branch_TeacherManager.List().Where(x => x.teacherid == id).ToList();
 
             AddLessonModel addLessonModel = new AddLessonModel();
 
@@ -64,7 +63,7 @@ namespace FirstEntitiyFrameworkCore.Controllers
             addLessonModel.name = teacher.name;
             addLessonModel.surname = teacher.surname;
             lessonManager.List().Where(x=>x.isFull != true).ToList().ForEach(x => addLessonModel.selectListLesson.Add(new SelectListItem(x.name, x.id.ToString())));
-            branch_TeacherList.ForEach(x => addLessonModel.selectListBranch.Add(new SelectListItem(x.branchName, x.BranchId.ToString())));
+            branch_TeacherList.ForEach(x => addLessonModel.selectListBranch.Add(new SelectListItem(x.branchName, x.branchid.ToString())));
 
             return View(addLessonModel);
         }
@@ -73,8 +72,8 @@ namespace FirstEntitiyFrameworkCore.Controllers
         public IActionResult addInstructorLesson(AddLessonModel addLessonModel)
         {
             _IRedisCacheService.GetLessons().Where(x=>x.isFull != true).ToList().ForEach(x => addLessonModel.selectListLesson.Add(new SelectListItem(x.name, x.id.ToString())));
-            branch_TeacherList = branch_TeacherManager.List().Where(x => x.TeacherId == addLessonModel.TeacherId).ToList();
-            branch_TeacherList.ForEach(x => addLessonModel.selectListBranch.Add(new SelectListItem(x.branchName, x.BranchId.ToString())));
+            branch_TeacherList = branch_TeacherManager.List().Where(x => x.teacherid == addLessonModel.TeacherId).ToList();
+            branch_TeacherList.ForEach(x => addLessonModel.selectListBranch.Add(new SelectListItem(x.branchName, x.branchid.ToString())));
 
 
             if (addLessonModel != null)
@@ -88,9 +87,18 @@ namespace FirstEntitiyFrameworkCore.Controllers
                     addLessonModel.name = teacher.name;
                     addLessonModel.surname = teacher.surname;
 
-                    TempData.MyPut("model",addLessonModel);
+                    if (addLessonModel.isPDF)
+                    {
+                        TempData.MyPut("model", addLessonModel);
 
-                    return RedirectToAction("exportSubject", "ExportPDF");
+                        return RedirectToAction("exportSubject", "ExportPDF");
+                    }
+                    else
+                    {
+                        toastNotification.AddSuccessToastMessage("Ders Ve Konu Kayıtları Başarıyla Gerçekleşti!");
+                        return RedirectToAction("addInstructorLesson","SelectLesson",new { id = addLessonModel.TeacherId });
+                    }
+                   
                 }
                 else
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,13 +13,13 @@ namespace FirstEntityFrameworkCore.DAC.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-
+      
         public Branch branch { set; get; }
-        public int BranchId { set; get; }
+        public int branchid { set; get; }
         public string branchName { set; get; }
-
+    
         public Teacher teacher { set; get; }
-        public int TeacherId { set; get; }
+        public int teacherid { set; get; }
         public string teacherName { set; get; }
 
 

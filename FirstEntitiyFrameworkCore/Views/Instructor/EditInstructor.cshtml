@@ -1,0 +1,130 @@
+﻿
+@using FirstEntityFrameworkCore.Entity.ViewModel
+@using FirstEntityFrameworkCore.DAC.Entities;
+
+@model EditInstructorModel
+
+
+<style>
+
+    .card {
+        border: 1px solid rgba(153, 153, 153, 0.36);
+    }
+
+    .border-dark {
+        border-color: #343a40 !important;
+    }
+    .card-footer {
+        padding: 0.75rem 1.25rem;
+        background-color: rgba(153, 153, 153, 0.36);
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+</style>
+
+<div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"></h1>
+
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <h4 class="mb-2 float-left nameAndSurname">Eğitmen @Model.name @Model.surname İçin Ders Ve Branş Kaydı</h4>
+    </div>
+</div>
+
+
+<form asp-controller="Instructor" asp-action="EditInstructor" method="post">
+
+    <div class="col-sm-12 ml-2">
+
+        <div class="card border-dark mb-2" style="max-width: 60rem;">
+            <div class="card-header">
+                <div class="col-sm-12 mt-1 mb-1 row ml-1">
+                    <h5 class="">Eğitmen Bilgileri</h5>
+                </div>
+            </div>
+            <div class="card-body text-dark row">
+                <div class="col-sm-4 mb-3 row ml-1">
+                    <label for="instructorNameText">Ad</label>
+                    <input asp-for="name" class="form-control nameAndSurname" placeholder="Ad" disabled="disabled" />
+                </div>
+
+                <div class="col-sm-4 mb-3 row ml-1">
+                    <label for="instructorSurnameText">Soyad</label>
+                    <input asp-for="surname" class="form-control nameAndSurname" placeholder="Soyad" disabled="disabled" />
+                </div>
+            </div>
+
+            <div class="card-footer text-muted">
+                <div class="custom-control custom-switch mt-1 float-right">
+
+                    <input asp-for="isEnable" type="checkbox" class="custom-control-input value" id="switch" onclick="Switch('nameAndSurname','switch',@Model.Id)" />
+                    <label class="custom-control-label" for="switch"></label>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    @for (int i = 0; i < Model.branchKeys.Count; i++)
+    {
+        <div class="col-sm-12 ml-2 mb-2" id="card_@i">
+            <div class="card border-dark  mb-2" style="max-width: 60rem;">
+
+
+                <div class="card-header">
+
+                    <div class="row">
+                        <span class="col-sm-5 row ml-1">
+                            <p>Branş Adı</p>
+                        </span>
+
+                        <span class="col-sm-5 row ml-1">
+                            <p>Ders Adı</p>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="card-body row">
+                    <div class="col-sm-5 row ml-1">
+
+                        <div class="col-sm-6">
+                            <select class="form-control switch_@i" onchange="branchWarningMessage('1message_@i','switch_@i','s_@i','2message_@i')" asp-items="@Model.branchKeys[i]" asp-for="@Model.branchValues[i]" id="1switch_@i" disabled></select>
+                        </div>
+
+                        <small class="ml-1 d-none" id="1message_@i" style="color:red">Bu branşı bırakırsanız bu branşa ait derste bırakılacaktır! </small>
+                        <small class="ml-1 d-none" id="2message_@i" style="color:red">"Bir Eğitmene ait en az bir branş olmalıdır!" </small>
+                        
+                    </div>
+
+                    <div class="col-sm-5 row ml-1 mt-1">
+                        <div class="col-sm-6">
+                            <select class="form-control switch_@i" asp-items="@Model.lessonKeys[i]" asp-for="@Model.lessonValues[i]" id="2switch_@i" disabled></select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-footer text-muted">
+                    <div class="custom-control custom-switch mt-1 float-right">
+                        <input asp-for="isEnable" type="checkbox" class="custom-control-input value" id="s_@i" onclick="Switch('switch_@i', 's_@i',@Model.Id,'card_@i')" />
+                        <label class="custom-control-label s_@i" for='s_@i'></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+</form>
+
+
+<hr />
+
+
+<script src="~/js/JavaScript/EditInstructor.js"></script>
+

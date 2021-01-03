@@ -656,8 +656,8 @@ C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEn
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Entity\bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Entity\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Entity\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Entity\obj\Debug\FirstEntityFrameworkCore.Entity.csprojAssemblyReference.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Entity\obj\Debug\FirstEntityFrameworkCore.Entity.csproj.CoreCompileInputs.cache
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Entity\obj\Debug\FirstEntityFrameworkCore.Entity.csproj.CopyComplete
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Entity\obj\Debug\FirstEntityFrameworkCore.Entity.dll
 C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Entity\obj\Debug\FirstEntityFrameworkCore.Entity.pdb
-C:\Users\mehme\Desktop\Desktop\GitHub\Teacher-Course-Registration-System\FirstEntityFrameworkCore.Entity\obj\Debug\FirstEntityFrameworkCore.Entity.csprojAssemblyReference.cache

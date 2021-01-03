@@ -96,7 +96,7 @@
                                     @using (Html.BeginForm("Delete", "Edit"))
                                     {
 
-                                        <button class="btn btn-outline-warning btn-sm float-left">Düzenle</button>
+                                        <a class="btn btn-outline-warning btn-sm float-left" href ="@Url.Action("EditInstructor",new { id = newList[i].id})" >Düzenle</a>
                                     }
                                     @using (Html.BeginForm("Delete", "Lesson"))
                                     {
@@ -114,7 +114,7 @@
                                     <div class="dropdown-menu">
 
                                         @{
-                                            List<Branch_Teacher> bList = branchList.ToList().Where(x => newList[i].id == x.TeacherId).ToList();
+                                            List<Branch_Teacher> bList = branchList.ToList().Where(x => newList[i].id == x.teacherid).ToList();
 
                                             if (bList.Count == 0)
                                             {
@@ -143,7 +143,7 @@
                                     <div class="dropdown-menu">
 
                                         @{
-                                            List<Lessons> lList = lessonList.ToList().Where(x => newList[i].id == x.TeacherId).ToList();
+                                            List<Lessons> lList = lessonList.ToList().Where(x => newList[i].id == x.teacherid).ToList();
 
                                             if (lList.Count == 0)
                                             {

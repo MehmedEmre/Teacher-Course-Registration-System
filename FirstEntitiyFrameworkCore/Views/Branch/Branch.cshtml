@@ -9,8 +9,6 @@
 
 }
 
-<script src="~/js/JavaScript/DeleteAndUpdateBranch.js"></script>
-
 <div class="d-flex  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2"></h1>
 
@@ -24,7 +22,7 @@
 {
     <form>
         <div class="form-group col-sm-4">
-            <label for="lessonName">Ders Adı</label>
+            <label for="lessonName">Branş Adı</label>
 
             @Html.TextBoxFor(x => x.name, null, new { @class = "form-control", id = "branchText" })
 
@@ -42,6 +40,70 @@
         </button>
     </form>
 }
+
+
+
+<div class="row">
+
+    <button class="btn btn-outline-dark mt-3 ml-3" type="submit">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-diamond" viewBox="0 0 16 16">
+            <path d="M8.384 1.226a.463.463 0 0 0-.768 0l-4.56 6.468a.537.537 0 0 0 0 .612l4.56 6.469a.463.463 0 0 0 .768 0l4.56-6.469a.537.537 0 0 0 0-.612l-4.56-6.468zM6.848.613a1.39 1.39 0 0 1 2.304 0l4.56 6.468a1.61 1.61 0 0 1 0 1.838l-4.56 6.468a1.39 1.39 0 0 1-2.304 0L2.288 8.92a1.61 1.61 0 0 1 0-1.838L6.848.613z" />
+        </svg>
+
+        <span class="ml-1" typeof="button" onclick="show('card','teacher','branchs',true)" id="addInstructor">Mevcut Bir Eğitmene Branş Ekle</span>
+
+    </button>
+
+</div>
+
+
+
+
+<div class="col-sm-12 mt-3" style="display:none" id="card">
+    <div class="card border-dark  mb-2" style="max-width: 60rem;">
+
+
+        <div class="card-header">
+
+            <div class="row">
+                <span class="col-sm-5 row ml-1">
+                    <p>Eğitmen Adı Ve Soyadı</p>
+                </span>
+
+                <span class="col-sm-5 row ml-1">
+                    <p>Kullanılabilecek Mevcut Branşlar</p>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="card-body row">
+
+            <div class="col-sm-5 row ml-1">
+
+                <div class="col-sm-8">
+                    <select class="form-control teacher" onchange="LoadBranch('teacher','branchs')" asp-items="@Model.TeacherList" asp-for="@Model.teacherValue" id="teacherList"></select>
+                </div>
+
+            </div>
+
+            <div class="col-sm-5 row ml-1 mt-1">
+                <div class="col-sm-8">
+                    <select class="form-control branchs" asp-items="@Model.BrachList" asp-for="@Model.branchValue" id="branchList"></select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer text-muted">
+            <button typeof="button" class="btn btn-outline-dark btn-sm mt-1 float-right" onclick="registerBranch('teacher','branchs')" >Ekle</button>
+        </div>
+
+    </div>
+
+</div>
+
 
 <h3 class="mt-3">Mevcut Branşların Listesi:</h3>
 
@@ -109,7 +171,12 @@
     </table>
 </div>
 
+
 @await Component.InvokeAsync("Modal")
+
+
+<script src="~/js/JavaScript/DeleteAndUpdateBranch.js"></script>
+<script src="~/js/JavaScript/AlreadyExistingBranch.js"></script>
 
 <script>
 
